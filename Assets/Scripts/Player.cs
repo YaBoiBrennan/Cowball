@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private float verticalInput;
     private Rigidbody2D rb;
     public float horizontalSpeed = 5.0f;
+    public AudioSource gunshot;
 
     // Start is called before the first frame update
     void Start()

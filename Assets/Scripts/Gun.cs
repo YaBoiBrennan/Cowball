@@ -20,6 +20,8 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private Sprite[] ammo;
     public Image ammoDisplay;
+
+    public AudioSource gunshot;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,8 @@ public class Gun : MonoBehaviour
             //And give player knockback
             Vector3 direction = (this.transform.position - player.transform.position) * -1;
             direction = Vector3.Normalize(direction);
+
+            gunshot.Play();
 
             if (player.velocity.y < 0)
                 player.velocity = new Vector2(player.velocity.x, 0);
