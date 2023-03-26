@@ -22,11 +22,13 @@ public class Gun : MonoBehaviour
     public Image ammoDisplay;
 
     public AudioSource gunshot;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         currentBullets = magazineSize;
         ammoDisplay.sprite = ammo[0];
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class Gun : MonoBehaviour
             Vector3 direction = (this.transform.position - player.transform.position) * -1;
             direction = Vector3.Normalize(direction);
 
+            anim.SetTrigger("Shoot");
             gunshot.Play();
 
             if (player.velocity.y < 0)
